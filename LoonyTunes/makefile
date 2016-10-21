@@ -1,20 +1,23 @@
-GCC = gcc -g
+GCC = gcc -g 
 
-all: stest test
+all: linked.o playlist.o main.o
+	$(GCC) link_list.o music_library.o main.o -o myTunes.out
 
-test: linkedlist.o playlist.o test.o
-	$(GCC) linkedlist.o playlist.o test.o -o test
+link_list.o: link_list.c
+	$(GCC) -c link_list.c 
 
-linkedlist.o: linkedlist.c linkedlist.h
-	$(GCC) -c linkedlist.c
+main.o: main.c
+	$(GCC) -c main.c
 
-playlist.o: playlist.c playlist.h
-	$(GCC) -c playlist.c
+music_library.o: music_library.c
+	$(GCC) -c music_library.c
 
-test.o: test.c playlist.h
-	$(GCC) -c test.c
+run: myTunes.out
+	./myTunes.out
 
 clean:
-	rm *.o
+	make -i cleanH
+
+cleanH:
 	rm *~
-	rm *#e
+	rm *.o
