@@ -1,6 +1,6 @@
 GCC = gcc -g 
 
-all: link_list.o music_library.o main.o
+all: linked.o playlist.o main.o
 	$(GCC) link_list.o music_library.o main.o -o myTunes.out
 
 link_list.o: link_list.c
