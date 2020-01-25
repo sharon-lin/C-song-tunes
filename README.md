@@ -1,3 +1,3 @@
-# C-song-tunes
+# Song Tunes Shuffler
 
 Simple song list organizer/shuffler
